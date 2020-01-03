@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.beer-image {
+    margin: 0;
+    padding: 0;
+}
+.imgheader {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.text {
+    float: left;
+    color: white;
+}
