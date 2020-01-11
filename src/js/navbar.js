@@ -1,5 +1,5 @@
 import toggle from './ui.js';
-import  { renderShowsDOM } from './shows.js';
+import  { renderBeersDOM } from './beers.js';
 
 const navbar = document.querySelector('#app-navbar');
 const searchIcon = document.querySelector('#navbar-search');

@@ -1,19 +1,31 @@
 const API_KEY = 'PCNA0Y5-GMCMXYD-N5RTXDE-SZ4KDZH';
 
-const api = (API_URL = 'web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1') => {
-    const searchAPIEndpoint = `${API_URL}search/shows?q=`;
-    const showsAPIEndpoint =  `${API_URL}shows`;
+const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1') => {
+    const beersAPIEndpoint =  `${API_URL}/beers`;
     return {
         getBeers: async text => {
             try {
-                const requestUrl = text ? `${searchAPIEndpoint}${text}` : showsAPIEndpoint;
-                const response = await fetch(showsAPIEndpoint);
+                const requestUrl = `${beersAPIEndpoint}?limit=10`;
+                const response = await fetch(requestUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                if (response.status >= 400) {
+                    const error = { message: 'Error on response', status: response.status };
+                    throw error;
+                }
                 if (!response.ok) {
                     throw new Error('Error fetching beers');
                 }
+
                 const data = await response.json();
+                console.log(data);
+                return data;
             } catch (e) {
-                console.log(e.message);
+                console.error(e.message);
                 throw e;
             }
         },
