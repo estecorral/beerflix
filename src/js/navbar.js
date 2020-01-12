@@ -1,11 +1,15 @@
-import toggle from './ui.js';
 import  { renderBeersDOM } from './beers.js';
 
-const navbar = document.querySelector('#app-navbar');
-const searchIcon = document.querySelector('#navbar-search');
+//const {setItem, getItem} = storage('cookieStorage');
 
-const handleNavBar = toggle(navbar);
+const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#inputSearch');
+const searchDate = document.querySelector('#searchDate');
 
-searchIcon.addEventListener('click', () => (
-   handleNavBar('no-search', 'search')
-));
+searchForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    if(searchInput.validity.valid && searchDate.validity.valid) {
+        // setItem('search', searchInput.value);
+        renderBeersDOM(searchInput.value, searchDate.value.substring(0,4));
+    }
+});

@@ -1,4 +1,5 @@
 import api from './api.js'
+import { renderLoader } from "./ui.js";
 
 const {getBeers} = api();
 
@@ -13,6 +14,7 @@ const templateBeer = beer => {
               <div class="card-body">
                 <h5 class="card-title">${beer.name}</h5>
                 <p class="card-text">${beer.description.substring(0,40)}...</p>
+                <p class="card-text"><small class="text-muted">${beer.firstBrewed}</small></p>
                 <a href="#" class="btn btn-secondary">Más info</a>
               </div>
             </div>
@@ -21,32 +23,30 @@ const templateBeer = beer => {
     `;
 };
 
-const items = [
-    {
-        name: 'lala',
-        image: '../../img/beer2_hight.png',
-        description: 'lalallalaljkejkajdkasncudhaoajads',
-    },
-    {
-        name: 'lala22222',
-        image: '../../img/beer2_hight.png',
-        description: 'lalallalaljkejkajdkasncudhaoajads',
-    },
-];
-
 const renderBeers = (element, beers) => {
     const htmlBeers = beers.map(beer => templateBeer(beer)).join('');
     element.innerHTML = htmlBeers;
 };
 
-const renderBeersDOM = async (text) => {
+const renderBeersDOM = async (text, year) => {
     try {
+        renderLoader('hide', 'show');
         const mainSection = document.querySelector('main');
-        const items = await getBeers();
-        console.log(items.beers);
-        renderBeers(mainSection, items.beers);
+        const items = await getBeers(text);
+        if(!year) {
+            renderBeers(mainSection, items.beers);
+        } else {
+            const yearItems = items.beers.filter(beer => {
+                if (beer.firstBrewed.substring(3,7) === year) {
+                    return beer;
+                }
+            });
+            renderBeers(mainSection, yearItems);
+        }
     }catch (e) {
         console.error(e);
+    } finally {
+       renderLoader('show', 'hide');
     }
 };
 

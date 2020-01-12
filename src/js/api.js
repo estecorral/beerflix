@@ -5,7 +5,7 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
     return {
         getBeers: async text => {
             try {
-                const requestUrl = `${beersAPIEndpoint}?limit=10`;
+                const requestUrl = text ? `${beersAPIEndpoint}?search=${text}&limit=10` : `${beersAPIEndpoint}?limit=10`;
                 const response = await fetch(requestUrl, {
                     method: 'GET',
                     headers: {
@@ -22,7 +22,6 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                 }
 
                 const data = await response.json();
-                console.log(data);
                 return data;
             } catch (e) {
                 console.error(e.message);
