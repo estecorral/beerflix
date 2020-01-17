@@ -15,7 +15,7 @@ const templateBeer = beer => {
                 <h5 class="card-title">${beer.name}</h5>
                 <p class="card-text">${beer.description.substring(0,40)}...</p>
                 <p class="card-text"><small class="text-muted">${beer.firstBrewed}</small></p>
-                <a href="#" class="btn btn-secondary">Más info</a>
+                <a href="/beerDetail/${beer.beerId}" class="btn btn-secondary">Más info</a>
               </div>
             </div>
           </div>
@@ -49,7 +49,5 @@ const renderBeersDOM = async (text, year) => {
        renderLoader('show', 'hide');
     }
 };
-
-renderBeersDOM();
 
 export { renderBeersDOM };

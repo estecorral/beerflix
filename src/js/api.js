@@ -21,13 +21,37 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                     throw new Error('Error fetching beers');
                 }
 
-                const data = await response.json();
-                return data;
+                const beers = await response.json();
+                return beers;
             } catch (e) {
                 console.error(e.message);
                 throw e;
             }
         },
+        getBeerDetail: async id => {
+            try{
+                const requestUrl = `${beersAPIEndpoint}/${id}`;
+                const response = await fetch(requestUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                if (response.status >= 400) {
+                    const error = { message: 'Error on response', status: response.status };
+                    throw error;
+                }
+                const beer = await response.json();
+                return beer;
+                if (!response.ok) {
+                    throw new Error('Error fetching beerDetail');
+                }
+            } catch (e) {
+                console.error(e.message);
+                throw e;
+            }
+        }
     };
 };
 

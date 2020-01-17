@@ -1,0 +1,44 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.search-view {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar-icon {
+  padding-left: 10px;
+}
+
+.form-control {
+  display: flex;
+  justify-content: flex-end;
+}
+.form-inline.no-search {
+  display: none;
+}
+
+.navbar.no-search .filter-container {
+  display: block;
+}
+
+.navbar.no-search .navbar-icon {
+  display: none;
+}
+
+.navbar.filter .navbar-right-actions {
+  display: block;
+}
+
+.navbar.search .filter-container,
+.navbar.search .fa-times {
+  display: block;
+}
+.navbar.search.filter .navbar-right-actions {
+  width: 100%;
+}
+.navbar.search .navbar-logo,
+.navbar.search .fa-search {
+  display: none;
+}
