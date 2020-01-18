@@ -26,11 +26,12 @@ body {
 }
 
 .header-text {
-    position: fixed;
+    position: absolute;
     padding-left: 50px;
     padding-top: 50px;
     color: white;
     width: 500px;
+    height: 20vh;
 }
 
 .cards {
@@ -44,7 +45,6 @@ body {
 
 .card {
   width: 19vw;
-  height: 300px;
   margin-bottom: 5px;
 }
 
@@ -54,12 +54,26 @@ body {
 }
 
 .cardDetail {
-  width: 40vw;
-  height: 500px;
+  width: 55vw;
   margin-bottom: 5px;
 }
 
 .card-img-detail {
   margin-top: 5px;
   max-width: 50%;
+}
+
+.cardsDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote-form.show {
+  width: 55vw;
+}
+
+.quote-form.hide {
+  display: none;
 }

@@ -8,3 +8,6 @@ export const toggleClass = (elemento, toggleClass) => {
 };
 const loader = document.querySelector('#loader');
 export const renderLoader = toggle(loader);
+
+const formQuote = document.querySelector('#quote-form');
+export const renderFormComments = toggle(formQuote);

@@ -1,0 +1,28 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "Práctica frontend avanzado",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "./node_modules/.bin/http-server . -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estecorral/beerflix.git"
+  },
+  "author": "Esteban Corral González",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estecorral/beerflix/issues"
+  },
+  "homepage": "https://github.com/estecorral/beerflix#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1"
+  }
+}
