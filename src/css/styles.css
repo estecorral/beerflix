@@ -60,6 +60,7 @@ body {
 
 .card-img-detail {
   margin-top: 5px;
+  width: 50%;
   max-width: 100%;
 }
 
@@ -110,5 +111,11 @@ body {
     position: center;
     width: 20%;
     margin: auto;
+  }
+
+  .cardDetail {
+    width: 85vw;
+    margin-bottom: 5px;
+  }
   }
 }
