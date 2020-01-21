@@ -1,5 +1,8 @@
 import api from './api.js'
 import { renderLoader } from "./ui.js";
+import storage from "./storage.js";
+
+const lStorage = storage('localStorage');
 
 const {getBeers} = api();
 
