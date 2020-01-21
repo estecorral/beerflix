@@ -48,9 +48,9 @@ body {
   margin-bottom: 5px;
 }
 
-.card-img {
-  margin-top: 5px;
-  max-width: 100%;
+.col-md-4 {
+  width: 200px;
+  height: 30%;
 }
 
 .cardDetail {
@@ -60,7 +60,7 @@ body {
 
 .card-img-detail {
   margin-top: 5px;
-  max-width: 50%;
+  max-width: 100%;
 }
 
 .cardsDetail {
@@ -76,4 +76,39 @@ body {
 
 .quote-form.hide {
   display: none;
+}
+
+@media all and (max-width: 1200px){
+  .card {
+    width: 32vw;
+    margin-bottom: 5px;
+  }
+  .card-img {
+    position: center;
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 900px){
+  .card {
+    width: 49vw;
+    margin-bottom: 5px;
+  }
+  .card-img {
+    position: center;
+    width: 60%;
+    margin: auto;
+  }
+}
+@media all and (max-width: 780px){
+  .card {
+    width: 99vw;
+    margin-bottom: 5px;
+  }
+  .card-img {
+    position: center;
+    width: 20%;
+    margin: auto;
+  }
 }
