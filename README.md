@@ -1,2 +1,2 @@
 # beerflix
-Práctica java avanzado
+Práctica javascriptavanzado
